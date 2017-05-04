@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SeguimientoDeTuEnfermedadModelStoreContainer" CdmEntityContainer="SeguimientoEnfermedadEntities">
+    <EntitySetMapping Name="agenda">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.agenda">
+        <MappingFragment StoreEntitySet="agenda">
+          <ScalarProperty Name="idagenda" ColumnName="idagenda" />
+          <ScalarProperty Name="fechaNotificacion" ColumnName="fechaNotificacion" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consulta">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.consulta">
+        <MappingFragment StoreEntitySet="consulta">
+          <ScalarProperty Name="idconsulta" ColumnName="idconsulta" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="padecimiento" ColumnName="padecimiento" />
+          <ScalarProperty Name="idmedico" ColumnName="idmedico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="datosbasePac">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.datosbasePac">
+        <MappingFragment StoreEntitySet="datosbasePac">
+          <ScalarProperty Name="IdDatosbase" ColumnName="IdDatosbase" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="altura" ColumnName="altura" />
+          <ScalarProperty Name="alergias" ColumnName="alergias" />
+          <ScalarProperty Name="presionArterial" ColumnName="presionArterial" />
+          <ScalarProperty Name="glucosa" ColumnName="glucosa" />
+          <ScalarProperty Name="ritmoCardiaco" ColumnName="ritmoCardiaco" />
+          <ScalarProperty Name="temperatura" ColumnName="temperatura" />
+          <ScalarProperty Name="talla" ColumnName="talla" />
+          <ScalarProperty Name="tipoSangre" ColumnName="tipoSangre" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historial">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.historial">
+        <MappingFragment StoreEntitySet="historial">
+          <ScalarProperty Name="idhistorial" ColumnName="idhistorial" />
+          <ScalarProperty Name="diagnosticoPasado" ColumnName="diagnosticoPasado" />
+          <ScalarProperty Name="diagnosticoConsulta" ColumnName="diagnosticoConsulta" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medico">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.medico">
+        <MappingFragment StoreEntitySet="medico">
+          <ScalarProperty Name="idmedico" ColumnName="idmedico" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pacient">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.pacient">
+        <MappingFragment StoreEntitySet="pacient">
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="padecimiento" ColumnName="padecimiento" />
+          <ScalarProperty Name="idagenda" ColumnName="idagenda" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persona">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.Persona">
+        <MappingFragment StoreEntitySet="Persona">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidoMa" ColumnName="apellidoMa" />
+          <ScalarProperty Name="apellidoPa" ColumnName="apellidoPa" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuario">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.TipoUsuario">
+        <MappingFragment StoreEntitySet="TipoUsuario">
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="tipoUsuario1" ColumnName="tipoUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuar">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.usuar">
+        <MappingFragment StoreEntitySet="usuar">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notificacion">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.notificacion">
+        <MappingFragment StoreEntitySet="notificacion">
+          <ScalarProperty Name="idnotificacion" ColumnName="idnotificacion" />
+          <ScalarProperty Name="fechaMed" ColumnName="fechaMed" />
+          <ScalarProperty Name="proximasCitas" ColumnName="proximasCitas" />
+          <ScalarProperty Name="idagenda" ColumnName="idagenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receta">
+      <EntityTypeMapping TypeName="SeguimientoDeTuEnfermedadModel.receta">
+        <MappingFragment StoreEntitySet="receta">
+          <ScalarProperty Name="idreceta" ColumnName="idreceta" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="prescripcion" ColumnName="prescripcion" />
+          <ScalarProperty Name="idmedico" ColumnName="idmedico" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

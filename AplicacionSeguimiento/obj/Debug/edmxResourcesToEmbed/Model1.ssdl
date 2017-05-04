@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SeguimientoDeTuEnfermedadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="agenda">
+    <Key>
+      <PropertyRef Name="idagenda" />
+    </Key>
+    <Property Name="idagenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fechaNotificacion" Type="varchar" MaxLength="45" />
+    <Property Name="contenido" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="consulta">
+    <Key>
+      <PropertyRef Name="idconsulta" />
+    </Key>
+    <Property Name="idconsulta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="varchar" MaxLength="45" />
+    <Property Name="padecimiento" Type="varchar" MaxLength="45" />
+    <Property Name="idmedico" Type="int" />
+  </EntityType>
+  <EntityType Name="datosbasePac">
+    <Key>
+      <PropertyRef Name="IdDatosbase" />
+    </Key>
+    <Property Name="IdDatosbase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="peso" Type="varchar" MaxLength="45" />
+    <Property Name="altura" Type="varchar" MaxLength="45" />
+    <Property Name="alergias" Type="varchar" MaxLength="45" />
+    <Property Name="presionArterial" Type="varchar" MaxLength="45" />
+    <Property Name="glucosa" Type="varchar" MaxLength="45" />
+    <Property Name="ritmoCardiaco" Type="varchar" MaxLength="45" />
+    <Property Name="temperatura" Type="varchar" MaxLength="45" />
+    <Property Name="talla" Type="varchar" MaxLength="45" />
+    <Property Name="tipoSangre" Type="varchar" MaxLength="45" />
+    <Property Name="idpaciente" Type="int" />
+  </EntityType>
+  <EntityType Name="historial">
+    <Key>
+      <PropertyRef Name="idhistorial" />
+    </Key>
+    <Property Name="idhistorial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="diagnosticoPasado" Type="varchar" MaxLength="1024" />
+    <Property Name="diagnosticoConsulta" Type="varchar" MaxLength="1024" />
+    <Property Name="idpaciente" Type="int" />
+  </EntityType>
+  <EntityType Name="medico">
+    <Key>
+      <PropertyRef Name="idmedico" />
+    </Key>
+    <Property Name="idmedico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cedula" Type="varchar" MaxLength="45" />
+    <Property Name="idPersona" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SeguimientoDeTuEnfermedad.dbo.notificacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="notificacion">
+    <Key>
+      <PropertyRef Name="idnotificacion" />
+    </Key>
+    <Property Name="idnotificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fechaMed" Type="varchar" MaxLength="45" />
+    <Property Name="proximasCitas" Type="varchar" MaxLength="45" />
+    <Property Name="idagenda" Type="int" />
+  </EntityType>
+  <EntityType Name="pacient">
+    <Key>
+      <PropertyRef Name="idpaciente" />
+    </Key>
+    <Property Name="idpaciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="padecimiento" Type="varchar" MaxLength="800" />
+    <Property Name="idagenda" Type="int" />
+    <Property Name="id" Type="int" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="apellidoMa" Type="varchar" MaxLength="50" />
+    <Property Name="apellidoPa" Type="varchar" MaxLength="50" />
+    <Property Name="fechaNacimiento" Type="varchar" MaxLength="50" />
+    <Property Name="domicilio" Type="varchar" MaxLength="50" />
+    <Property Name="telefono" Type="int" />
+    <Property Name="sexo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SeguimientoDeTuEnfermedad.dbo.receta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="receta">
+    <Key>
+      <PropertyRef Name="idreceta" />
+    </Key>
+    <Property Name="idreceta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="varchar" MaxLength="45" />
+    <Property Name="prescripcion" Type="varchar" MaxLength="45" />
+    <Property Name="idmedico" Type="int" />
+    <Property Name="vigencia" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="idTipoUsuario" />
+    </Key>
+    <Property Name="idTipoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoUsuario" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="usuar">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="pass" Type="varchar" MaxLength="45" />
+    <Property Name="idTipoUsuario" Type="int" />
+    <Property Name="idPersona" Type="int" />
+  </EntityType>
+  <Association Name="FK__consulta__idmedi__3D5E1FD2">
+    <End Role="medico" Type="Self.medico" Multiplicity="0..1" />
+    <End Role="consulta" Type="Self.consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medico">
+        <PropertyRef Name="idmedico" />
+      </Principal>
+      <Dependent Role="consulta">
+        <PropertyRef Name="idmedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__datosbase__idpac__6B24EA82">
+    <End Role="pacient" Type="Self.pacient" Multiplicity="0..1" />
+    <End Role="datosbasePac" Type="Self.datosbasePac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacient">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="datosbasePac">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__historial__idpac__5070F446">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="historial" Type="Self.historial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="historial">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medico__idPerson__3A81B327">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="medico" Type="Self.medico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="medico">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__notificac__idage__5535A963">
+    <End Role="agenda" Type="Self.agenda" Multiplicity="0..1" />
+    <End Role="notificacion" Type="Self.notificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agenda">
+        <PropertyRef Name="idagenda" />
+      </Principal>
+      <Dependent Role="notificacion">
+        <PropertyRef Name="idagenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pacient__id__5FB337D6">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="pacient" Type="Self.pacient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="pacient">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pacient__idagend__5EBF139D">
+    <End Role="agenda" Type="Self.agenda" Multiplicity="0..1" />
+    <End Role="pacient" Type="Self.pacient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agenda">
+        <PropertyRef Name="idagenda" />
+      </Principal>
+      <Dependent Role="pacient">
+        <PropertyRef Name="idagenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__receta__idmedico__5AEE82B9">
+    <End Role="medico" Type="Self.medico" Multiplicity="0..1" />
+    <End Role="receta" Type="Self.receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medico">
+        <PropertyRef Name="idmedico" />
+      </Principal>
+      <Dependent Role="receta">
+        <PropertyRef Name="idmedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuar__idPersona__74AE54BC">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="usuar" Type="Self.usuar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuar">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuar__idTipoUsu__75A278F5">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+    <End Role="usuar" Type="Self.usuar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Principal>
+      <Dependent Role="usuar">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SeguimientoDeTuEnfermedadModelStoreContainer">
+    <EntitySet Name="agenda" EntityType="Self.agenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="consulta" EntityType="Self.consulta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="datosbasePac" EntityType="Self.datosbasePac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="historial" EntityType="Self.historial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="medico" EntityType="Self.medico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pacient" EntityType="Self.pacient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuar" EntityType="Self.usuar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notificacion" EntityType="Self.notificacion" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [notificacion].[idnotificacion] AS [idnotificacion], 
+    [notificacion].[fechaMed] AS [fechaMed], 
+    [notificacion].[proximasCitas] AS [proximasCitas], 
+    [notificacion].[idagenda] AS [idagenda]
+    FROM [dbo].[notificacion] AS [notificacion]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="receta" EntityType="Self.receta" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [receta].[idreceta] AS [idreceta], 
+    [receta].[fecha] AS [fecha], 
+    [receta].[prescripcion] AS [prescripcion], 
+    [receta].[idmedico] AS [idmedico], 
+    [receta].[vigencia] AS [vigencia]
+    FROM [dbo].[receta] AS [receta]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__consulta__idmedi__3D5E1FD2" Association="Self.FK__consulta__idmedi__3D5E1FD2">
+      <End Role="medico" EntitySet="medico" />
+      <End Role="consulta" EntitySet="consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__datosbase__idpac__6B24EA82" Association="Self.FK__datosbase__idpac__6B24EA82">
+      <End Role="pacient" EntitySet="pacient" />
+      <End Role="datosbasePac" EntitySet="datosbasePac" />
+    </AssociationSet>
+    <AssociationSet Name="FK__historial__idpac__5070F446" Association="Self.FK__historial__idpac__5070F446">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="historial" EntitySet="historial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medico__idPerson__3A81B327" Association="Self.FK__medico__idPerson__3A81B327">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="medico" EntitySet="medico" />
+    </AssociationSet>
+    <AssociationSet Name="FK__notificac__idage__5535A963" Association="Self.FK__notificac__idage__5535A963">
+      <End Role="agenda" EntitySet="agenda" />
+      <End Role="notificacion" EntitySet="notificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacient__id__5FB337D6" Association="Self.FK__pacient__id__5FB337D6">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="pacient" EntitySet="pacient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacient__idagend__5EBF139D" Association="Self.FK__pacient__idagend__5EBF139D">
+      <End Role="agenda" EntitySet="agenda" />
+      <End Role="pacient" EntitySet="pacient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__receta__idmedico__5AEE82B9" Association="Self.FK__receta__idmedico__5AEE82B9">
+      <End Role="medico" EntitySet="medico" />
+      <End Role="receta" EntitySet="receta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuar__idPersona__74AE54BC" Association="Self.FK__usuar__idPersona__74AE54BC">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="usuar" EntitySet="usuar" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuar__idTipoUsu__75A278F5" Association="Self.FK__usuar__idTipoUsu__75A278F5">
+      <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+      <End Role="usuar" EntitySet="usuar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

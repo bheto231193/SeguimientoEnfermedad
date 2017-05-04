@@ -1,0 +1,42 @@
+﻿@model AplicacionSeguimiento.historial
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>historial</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.diagnosticoPasado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diagnosticoPasado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diagnosticoConsulta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diagnosticoConsulta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Persona.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Persona.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idhistorial }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
